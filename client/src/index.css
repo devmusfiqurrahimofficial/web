@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* shadcn/ui theme: radish red on black (Dreekk Innovation) */
+:root {
+  --nav-h: 64px;                    /* fixed glass navbar height (h-16 / lg:h-20) */
+  --carousel-offset: var(--nav-h);  /* phones: services carousel starts below the navbar */
+  --background: 240 7% 3%;          /* #070708 */
+  --foreground: 0 0% 98%;
+  --card: 240 6% 7%;
+  --card-foreground: 0 0% 98%;
+  --primary: 356 85% 40%;           /* logo red #BD0F1A */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 240 5% 13%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 240 5% 13%;
+  --muted-foreground: 240 5% 66%;
+  --accent: 2 78% 53%;              /* site red #E5322B */
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 240 5% 17%;
+  --input: 240 5% 17%;
+  --ring: 2 78% 53%;
+  --radius: 0.75rem;
+
+  /* tokens for the services carousel (it sets its own light theme inline) */
+  --color-background: oklch(var(--b1));
+  --color-foreground: oklch(var(--bc));
+  --color-primary: oklch(var(--p));
+  --color-muted-foreground: oklch(var(--bc) / 0.6);
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+@media (min-width: 640px) {
+  :root {
+    --carousel-offset: 0px;         /* wider screens: it runs under the glass navbar */
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --nav-h: 80px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-h);
+}
+
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: Roboto, system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
